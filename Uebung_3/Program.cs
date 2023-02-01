@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Uebung_3
 {
@@ -20,17 +17,18 @@ namespace Uebung_3
 
             foreach (Person p in personen)
             {
-                Console.WriteLine(p.datenAusgeben() + "\n");
+                Console.WriteLine(p.DatenFormatiertAusgeben() + "\n");
             }
 
-            //DateiExport(personen, pfad);
-            //List<Person> gelesen = new List<Person>();
-            //gelesen = DateiImport(pfad);
+            DateiExport(personen, pfad);
+            Console.ReadLine();
+            personen = null;
+            personen = DateiImport(pfad);
 
-            //foreach (Person p in gelesen)
-            //{
-            //    Console.WriteLine(p.datenAusgeben() + "\n");
-            //}
+            foreach (Person p in personen)
+            {
+                Console.WriteLine(p.DatenFormatiertAusgeben() + "\n");
+            }
 
             Console.ReadLine();
         }
@@ -47,7 +45,7 @@ namespace Uebung_3
                 File.AppendAllText(pfad, person.ToString());
             }
 
-            Console.WriteLine("Datei erfolgreich geschrieben.");
+            Console.WriteLine("Datei erfolgreich geschrieben.\n");
         }
 
         static List<Person> DateiImport(string pfad)
@@ -61,13 +59,11 @@ namespace Uebung_3
                 foreach (string zeile in zeilen)
                 {
                     string[] spalten = zeile.Split(';');
-                    Person tmp = new Person();
-                    tmp.Id = int.Parse(spalten[0]);
-                    tmp.Vorname = spalten[1];
-                    tmp.Nachname = spalten[2];
-                    tmp.Alter = int.Parse(spalten[3]);
-                    personen.Add(tmp);
+                    personen.Add(new Person(int.Parse(spalten[0]), spalten[1], spalten[2], int.Parse(spalten[3])));
                 }
+
+                Console.WriteLine("Datei erfolgreich gelesen.\n");
+
                 return personen;
             }
             else
@@ -96,7 +92,7 @@ namespace Uebung_3
             {
                 return $"{Id};{Vorname};{Nachname};{Alter}\n";
             }
-            public string datenAusgeben()
+            public string DatenFormatiertAusgeben()
             {
                 return $"ID:       {Id}\nVorame:   {Vorname}\nNachname: {Nachname}\nAlter:    {Alter}";
             }
