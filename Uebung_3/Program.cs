@@ -15,21 +15,16 @@ namespace Uebung_3
             Person p3 = new Person(3, "Maria", "Meier", 17);
             List<Person> personen = new List<Person> {p1, p2, p3};
 
-            foreach (Person p in personen)
-            {
-                Console.WriteLine(p.DatenFormatiertAusgeben() + "\n");
-            }
-
+            ListeAusgeben(personen);
             DateiExport(personen, pfad);
+
+            Console.WriteLine("<Enter> drücken um die geschriebene Datei einzulesen und auszugeben.");
             Console.ReadLine();
-            personen = null;
+
             personen = DateiImport(pfad);
+            ListeAusgeben(personen);
 
-            foreach (Person p in personen)
-            {
-                Console.WriteLine(p.DatenFormatiertAusgeben() + "\n");
-            }
-
+            Console.WriteLine("<Enter> drücken um das Programm zu beenden.");
             Console.ReadLine();
         }
 
@@ -47,7 +42,6 @@ namespace Uebung_3
 
             Console.WriteLine("Datei erfolgreich geschrieben.\n");
         }
-
         static List<Person> DateiImport(string pfad)
         {
             List<Person> personen = new List<Person>();
@@ -72,6 +66,13 @@ namespace Uebung_3
                 return personen;
             }
         }
+        static void ListeAusgeben(List<Person> personen)
+        {
+            foreach (Person p in personen)
+            {
+                Console.WriteLine(p.DatenFormatiertAusgeben() + "\n");
+            }
+        }
         
         class Person
         {
@@ -88,6 +89,7 @@ namespace Uebung_3
                 this.Nachname = Nachname;
                 this.Alter = Alter; 
             }
+            
             public override string ToString()
             {
                 return $"{Id};{Vorname};{Nachname};{Alter}\n";
