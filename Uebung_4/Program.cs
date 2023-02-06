@@ -11,10 +11,10 @@ namespace Uebung_4
     {
         static void Main(string[] args)
         {
-            List<int> karten = new List<int> {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,27,28,29,30,31,32};
+            List<int> karten = new List<int> {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32};
 
             karten = MischeKarten(karten);
-            karten = DeckAbheben(karten);
+            //karten = DeckAbheben(karten);
 
             foreach (int i in karten)
             {
@@ -28,12 +28,10 @@ namespace Uebung_4
         {
             List<int> tmp = new List<int>();
             Random rnd = new Random();
-            int index;
+            int index, anzahlKarten = karten.Count;
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 1; i++)
             {
-                int anzahlKarten = karten.Count;
-
                 for (int j = 0; j < anzahlKarten; j++)
                 {
                     index = rnd.Next(0, karten.Count);
@@ -46,7 +44,6 @@ namespace Uebung_4
 
             return karten;
         }
-
         static List<int> DeckAbheben(List<int> karten) 
         {
             Random rnd = new Random();
