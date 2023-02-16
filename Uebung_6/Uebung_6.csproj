@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{93FF2B1A-5AD9-4354-B1F7-BABDB749AFBC}</ProjectGuid>
+    <ProjectGuid>{61D7CD26-2C5A-4048-BEFA-F573CE7EA132}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Uebung_3</RootNamespace>
-    <AssemblyName>Uebung_3</AssemblyName>
+    <RootNamespace>Uebung_6</RootNamespace>
+    <AssemblyName>Uebung_6</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
